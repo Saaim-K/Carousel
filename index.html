@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img name="slide" onclick="handler(event)" />
+    </div>
+</body>
+<script>
+    var i = 0; 			// Start Point
+    var images = [];	// Images Array
+    var time = 2000;	// Time Between Switch
+    let img = document.querySelector('img');
+    // Image List
+    images[0] = "images/1.jpg";
+    images[1] = "images/2.jpg";
+    images[2] = "images/3.jpg";
+    images[3] = "images/4.jpg";
+
+    // Change Image
+    function changeImg() {
+        img.src = images[i];
+
+        // Check If Index Is Under Max
+        if (i < images.length - 1) {
+            // Add 1 to Index
+            i++;
+        } else {
+            // Reset Back To O
+            i = 0;
+        }
+
+        // Run function every x seconds
+        setTimeout("changeImg()", time);
+    }
+
+    // Run function when page loads
+    window.onload = changeImg;
+
+
+
+
+
+    function handler(event) {
+        console.log(event);
+        console.log("Client-X", event.clientX);
+        console.log("Client-Y", event.clientY);
+        if (event.clientX < 200) {
+            images[i - 1];
+        }
+        else if (event.clientX > 200) {
+            console.log("Client-X is greater than 250");
+        }
+    }
+</script>
+
+</html>
