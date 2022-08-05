@@ -1,4 +1,4 @@
-let img = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+let img = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'];
 function handler(event) {
     let x = event.offsetX;
     let clientWidth = event.target.clientWidth;
